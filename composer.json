@@ -1,0 +1,22 @@
+{
+    "name": "ruvents/spiral-jwt",
+    "description": "JWT authentication",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Ruvents\\SpiralJwt\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "spiral/framework": "^2.8",
+        "firebase/php-jwt": "^5.2",
+        "psr/http-message": "^1.0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.10",
+        "guzzlehttp/guzzle": "^7.2"
+    }
+}
