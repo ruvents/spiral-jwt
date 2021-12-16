@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Ruvents\SpiralJwt\Config;
 
+use Ruvents\SpiralJwt\Keys;
 use Spiral\Core\InjectableConfig;
 
 final class JwtConfig extends InjectableConfig
 {
     public const CONFIG = 'jwt';
 
-    private string $key;
+    private Keys $key;
 
     private string $algorithm;
 
@@ -25,7 +26,7 @@ final class JwtConfig extends InjectableConfig
         ] = $config;
     }
 
-    public function getKey(): string
+    public function getKey(): Keys
     {
         return $this->key;
     }

@@ -8,6 +8,7 @@ use Laminas\Diactoros\ServerRequest;
 use Laminas\Diactoros\Uri;
 use Ruvents\SpiralJwt\Auth\TokenStorage;
 use Ruvents\SpiralJwt\Jwt\TokenEncoder;
+use Ruvents\SpiralJwt\Keys;
 use Ruvents\SpiralJwt\Middleware\JwtMiddleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -23,7 +24,7 @@ class JwtMiddlewareTest extends TestCase
 {
     public function testExpired(): void
     {
-        $storage = new TokenStorage(new TokenEncoder('1234567890', 'HS256'), '+1 day');
+        $storage = new TokenStorage(new TokenEncoder(new Keys('1234567890'), 'HS256'), '+1 day');
         $token = $storage->create([], new \DateTimeImmutable('-1 second'));
 
         $request = (new ServerRequest())

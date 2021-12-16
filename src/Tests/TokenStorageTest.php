@@ -9,6 +9,7 @@ use Ruvents\SpiralJwt\Auth\TokenStorage;
 use Ruvents\SpiralJwt\Jwt\TokenEncoder;
 use Firebase\JWT\JWT;
 use PHPUnit\Framework\TestCase;
+use Ruvents\SpiralJwt\Keys;
 
 /**
  * @internal
@@ -26,7 +27,7 @@ final class TokenStorageTest extends TestCase
 
     public function testTokenCreation(): void
     {
-        $encoder = new TokenEncoder(self::KEY, self::ALGORITHM);
+        $encoder = new TokenEncoder(new Keys(self::KEY), self::ALGORITHM);
         $storage = new TokenStorage(
             $encoder,
             'not important',
@@ -50,7 +51,7 @@ final class TokenStorageTest extends TestCase
     {
         JWT::$timestamp = self::ISSUED_AT;
 
-        $encoder = new TokenEncoder(self::KEY, self::ALGORITHM);
+        $encoder = new TokenEncoder(new Keys(self::KEY), self::ALGORITHM);
         $storage = new TokenStorage($encoder, 'not important');
 
         /** @var Token */
@@ -69,7 +70,7 @@ final class TokenStorageTest extends TestCase
     {
         JWT::$timestamp = self::ISSUED_AT;
 
-        $encoder = new TokenEncoder(self::KEY, self::ALGORITHM);
+        $encoder = new TokenEncoder(new Keys(self::KEY), self::ALGORITHM);
         $storage = new TokenStorage($encoder, 'not important');
 
         /** @var null|Token */
