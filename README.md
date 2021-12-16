@@ -1,8 +1,9 @@
 # Spiral JWT
 
 This package implements authorization with
-[JWT tokens](https://jwt.io/introduction) in Spiral applications.
-
+[JWT tokens](https://jwt.io/introduction) in Spiral applications. 
+`firebase/php-jwt` is used for JWT-related work, reference its documentation
+for list of supported algorithms.
 
 ## Installation
 
@@ -10,7 +11,7 @@ This package implements authorization with
 composer require ruvents/spiral-jwt
 ```
 
-Then add JwtAuthBootloader to your App.php:
+Then add `JwtAuthBootloader` to your `App.php`:
 
 ```php
 use Ruvents\SpiralJwt\Bootloader\JwtAuthBootloader;
