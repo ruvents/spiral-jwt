@@ -1,6 +1,6 @@
 {
     "name": "ruvents/spiral-jwt",
-    "description": "JWT authentication",
+    "description": "JWT authorization",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
