@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ruvents\SpiralJwt\Jwt;
 
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 final class TokenEncoder
 {
@@ -25,6 +26,6 @@ final class TokenEncoder
 
     public function decode(string $token): array
     {
-        return (array) JWT::decode($token, $this->key, [$this->algorithm]);
+        return (array) JWT::decode($token, new Key($this->key, $this->algorithm));
     }
 }
