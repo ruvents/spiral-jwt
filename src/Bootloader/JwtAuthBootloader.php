@@ -31,7 +31,7 @@ final class JwtAuthBootloader extends Bootloader
     {
         $configurator->setDefaults('jwt', [
             'algorithm' => 'HS256',
-            'expiresAt' => '+1 month',
+            'expiresAt' => '+1 week',
         ]);
 
         $configurator->modify('http', new Prepend('middleware', null, JwtMiddleware::class));
@@ -41,7 +41,6 @@ final class JwtAuthBootloader extends Bootloader
         FactoryInterface $factory,
         JwtConfig $config
     ): TokenEncoder {
-        /** @var TokenEncoder */
         return $factory->make(TokenEncoder::class, [
             'key' => $config->getKey(),
             'algorithm' => $config->getAlgorithm(),
@@ -52,7 +51,6 @@ final class JwtAuthBootloader extends Bootloader
         FactoryInterface $factory,
         JwtConfig $config
     ): TokenStorageInterface {
-        /** @var TokenStorageInterface */
         return $factory->make(TokenStorage::class, [
             'expiresAt' => $config->getExpiresAt(),
         ]);
