@@ -14,7 +14,7 @@ composer require ruvents/spiral-jwt
 Then add `JwtAuthBootloader` to your `App.php`:
 
 ```php
-use Ruvents\SpiralJwt\Bootloader\JwtAuthBootloader;
+use Ruvents\SpiralJwt\JwtAuthBootloader;
 
 class App extends Kernel {
     protected const LOAD = [

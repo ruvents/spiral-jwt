@@ -9,7 +9,7 @@ use Laminas\Diactoros\Uri;
 use Ruvents\SpiralJwt\Auth\TokenStorage;
 use Ruvents\SpiralJwt\Jwt\TokenEncoder;
 use Ruvents\SpiralJwt\Keys;
-use Ruvents\SpiralJwt\Middleware\JwtMiddleware;
+use Ruvents\SpiralJwt\JwtMiddleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,7 +18,7 @@ use Spiral\Auth\TokenStorageInterface;
 
 /**
  * @internal
- * @covers \Ruvents\SpiralJwt\Middleware\JwtMiddleware
+ * @covers \Ruvents\SpiralJwt\JwtMiddleware
  */
 class JwtMiddlewareTest extends TestCase
 {

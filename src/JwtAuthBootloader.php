@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Ruvents\SpiralJwt\Bootloader;
+namespace Ruvents\SpiralJwt;
 
 use Ruvents\SpiralJwt\Auth\TokenStorage;
-use Ruvents\SpiralJwt\Config\JwtConfig;
+use Ruvents\SpiralJwt\JwtConfig;
 use Ruvents\SpiralJwt\Jwt\TokenEncoder;
-use Ruvents\SpiralJwt\Middleware\JwtMiddleware;
+use Ruvents\SpiralJwt\JwtMiddleware;
 use Spiral\Auth\TokenStorageInterface;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Bootloader\Auth\HttpAuthBootloader;

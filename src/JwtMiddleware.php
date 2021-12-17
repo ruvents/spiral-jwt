@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ruvents\SpiralJwt\Middleware;
+namespace Ruvents\SpiralJwt;
 
 use Firebase\JWT\ExpiredException;
 use Psr\Http\Message\ResponseInterface;

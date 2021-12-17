@@ -13,6 +13,7 @@ use Ruvents\SpiralJwt\Keys;
 
 /**
  * @internal
+ * @covers \Ruvents\SpiralJwt\Auth\TokenStorage
  */
 final class TokenStorageTest extends TestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ruvents\SpiralJwt\Config;
+namespace Ruvents\SpiralJwt;
 
 use Ruvents\SpiralJwt\Keys;
 use Spiral\Core\InjectableConfig;
