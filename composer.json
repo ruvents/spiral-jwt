@@ -6,7 +6,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Ruvents\\SpiralJwt\\": "src/"
+            "Ruvents\\SpiralJwt\\": "src/",
+            "Ruvents\\SpiralJwt\\Tests\\": "tests/"
         }
     },
     "require": {
