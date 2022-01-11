@@ -8,11 +8,12 @@ use Ruvents\SpiralJwt\Auth\TokenStorage;
 use Ruvents\SpiralJwt\JwtConfig;
 use Ruvents\SpiralJwt\Jwt\TokenEncoder;
 use Ruvents\SpiralJwt\JwtMiddleware;
+use Spiral\Auth\Middleware\AuthMiddleware;
 use Spiral\Auth\TokenStorageInterface;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Bootloader\Auth\HttpAuthBootloader;
 use Spiral\Config\ConfiguratorInterface;
-use Spiral\Config\Patch\Prepend;
+use Spiral\Config\Patch;
 use Spiral\Core\FactoryInterface;
 
 final class JwtAuthBootloader extends Bootloader
@@ -34,7 +35,10 @@ final class JwtAuthBootloader extends Bootloader
             'expiresAt' => '+1 week',
         ]);
 
-        $configurator->modify('http', new Prepend('middleware', null, JwtMiddleware::class));
+        // JwtMiddleware must be executed right before AuthMiddleware
+        $configurator->modify('http', new Patch\Delete('middleware', null, AuthMiddleware::class));
+        $configurator->modify('http', new Patch\Append('middleware', null, JwtMiddleware::class));
+        $configurator->modify('http', new Patch\Append('middleware', null, AuthMiddleware::class));
     }
 
     protected function tokenEncoder(
